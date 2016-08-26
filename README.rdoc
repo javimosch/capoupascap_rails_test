@@ -1,28 +1,36 @@
-== README
-
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Shopmycourses rails exercise documentation
 
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+Steps
+
+1
+=
+    - Create a Cloud9 VM with a barebone Rails4 project ready to deploy to heroku.
+  refs:
+ - https://devcenter.heroku.com/articles/getting-started-with-rails4#local-workstation-setup
+
+2
+=
+    - Configure Rails4 project to work correctly with postgresSQL on Cloud9 VM
+ refs:
+ - http://stackoverflow.com/questions/26545746/cloud9-postgres
+ - https://github.com/Aerogami/guides/wiki/Cloud9-workspace-setup-with-Rails-and-Postgresql
+
+3
+=
+	- Load bootstrap libraries for rails
+	- Code professionals crud
+ refs:
+ - https://github.com/bootstrap-ruby/rails-bootstrap-forms
+ - http://guides.rubyonrails.org/routing.html
+ - http://api.rubyonrails.org
+ - http://apidock.com/rails/
+
+
+4
+=
+    - Configure a google cloud console project to get an api key
+    - Add embed google map iframe on edit view
+ refs:
+ - https://developers.google.com/maps/documentation/embed/guide
+ - https://console.cloud.google.com
