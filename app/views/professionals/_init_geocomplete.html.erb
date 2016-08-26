@@ -1,8 +1,7 @@
-
 <script>
   $(function(){
     function initialize_geocomplete(){
-      if(window.google == undefined) return setTimeout(initialize_geocomplete,100);
+      if(window.google == undefined) return setTimeout(initialize_geocomplete,1000);
       $("[data-address]").geocomplete({
         map: "<%=map%>",
         location: "<%=location%>"
