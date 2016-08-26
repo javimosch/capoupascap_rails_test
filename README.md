@@ -50,7 +50,6 @@ display them in a list along with a form on which we find a picture, a map with 
   
     
   
-    
 ```javascript
 //create file .env and enviromental variables. Ex:
 RACK_ENV=development
@@ -58,8 +57,13 @@ PORT=8080
 USERNAME=admin
 PASSWORD=root
 ``` 
+
+
+
  
- ## Try on heroku: smc-test-ja.herokuapp.com
+
+ ## Try on heroku: 
+ ### [smc-test-ja.herokuapp.com](smc-test-ja.herokuapp.com)
 
 
 
