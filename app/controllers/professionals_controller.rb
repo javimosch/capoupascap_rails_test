@@ -4,10 +4,7 @@ class ProfessionalsController < ApplicationController
     @professionals = Professional.all
   end
 
-  def show
-    @professional = Professional.find params[:id]
-  end
-  
+
   def new
     @professional = Professional.new
   end

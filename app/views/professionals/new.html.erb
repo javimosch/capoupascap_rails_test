@@ -21,5 +21,5 @@
     <%= link_to 'Back', {action:'index'},class:'btn btn-default' %>
 <% end %>
 
-<%= render partial: "geocomplete_vendor"%>
+
 <%= render partial: "init_geocomplete", locals: {map:'#address_map', location: @professional.address } %>
