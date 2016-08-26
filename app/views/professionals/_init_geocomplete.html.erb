@@ -1,0 +1,19 @@
+
+<script>
+  $(function(){
+    function initialize_geocomplete(){
+      if(window.google == undefined) return setTimeout(initialize_geocomplete,100);
+      $("[data-address]").geocomplete({
+        map: "<%=map%>",
+        location: "<%=location%>"
+      });
+      
+      console.log({
+        map: "<%=map%>",
+        location: "<%=location%>"
+      })
+    }
+    initialize_geocomplete();
+  });
+</script>
+    

@@ -1,0 +1,33 @@
+<h1>Professional <%= @professional.first_name + ' ' + @professional.last_name %></h1>
+<%= bootstrap_form_for(@professional, {id: @professional.id}) do |f| %>
+    <div class="form-group">
+      <img src="/img/avatar<%=@professional.avatar%>.jpg"/>
+    </div>
+    <%= f.text_field 'first_name',placeholder:"First Name",required:true %>
+    <%= f.text_field 'last_name',placeholder:"Last Name" %>
+    
+    
+    <%= f.text_field 'address', data:{
+      address:''
+    },required:true %>
+    
+  <div id="address_map" class="google_map"></div>
+    
+    <%= f.text_field 'phone',placeholder:"+337605482" %>
+    <%= f.text_field 'specialty',required:true,placeholder:"Medical specialty" %>
+    
+    
+    <div class="form-group">
+      <%= f.submit "Save" %>
+    </div>
+<% end %>
+
+
+ <%= bootstrap_form_for(@professional,{method: :destroy,id:@professional.id}) do |f| %>
+    <%= f.submit "Destroy" %>
+<% end %>
+
+<%= render partial: "geocomplete_vendor"%>
+<%= render partial: "init_geocomplete", locals: {map:'#address_map', location: @professional.address } %>
+
+
