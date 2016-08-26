@@ -16,4 +16,4 @@ test:
 
 production:
   <<: *default
-  database: smc_test_ja_production
+  database: <%= ENV['DATABASE_NAME'] %> 
