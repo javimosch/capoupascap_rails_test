@@ -1,5 +1,9 @@
 ## Shopmycourses rails exercise documentation
 
+##### Description
+
+application Rails 4 for creating health professionals defined by a name, a name, an address, a phone number and a specialty, and allowing
+display them in a list along with a form on which we find a picture, a map with location of the address and the information for each healthcare professional.
 
 #### Steps 1..4
 
@@ -39,6 +43,21 @@
  	* [google cloud console](https://console.cloud.google.com)
  	
     
+ ## Local development
+ 
+    OPTION 1: install heroku CLI and run heroku local
+	OPTION 2: install foreman and run foreman start
+  
+    
+  
+    
+```javascript
+//create file .env and enviromental variables. Ex:
+RACK_ENV=development
+PORT=8080
+USERNAME=admin
+PASSWORD=root
+``` 
  
  ## Try on heroku: smc-test-ja.herokuapp.com
 

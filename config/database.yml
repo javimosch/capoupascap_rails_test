@@ -1,3 +1,10 @@
+# postgress / cloud9 configuration%>
+# HEROKU works out of the box settings envs to:
+#   USERNAME: user
+#   PASSWORD:      (empty)
+#   IP: localhost
+#   DATABASE_NAME: app-dev
+
 default: &default
   adapter: postgresql
   encoding: unicode

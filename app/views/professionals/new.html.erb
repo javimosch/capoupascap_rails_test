@@ -1,4 +1,5 @@
 
+<%#display server validations%>
 <% if @professional.errors.any? %>
 <ul>
   <% @professional.errors.full_messages.each do |msg| %>
@@ -8,18 +9,30 @@
 <% end %>
 
 <h1>Create Professional</h1>
+
+<%#form_for bootstrap implementation (https://github.com/bootstrap-ruby/rails-bootstrap-forms)%>
+
 <%= bootstrap_form_for(@professional, {id: @professional.id}) do |f| %>
+    
     <%= f.text_field 'first_name',placeholder:"First Name",required:true %>
+    
     <%= f.text_field 'last_name',placeholder:"Last Name" %>
      <%= f.text_field 'address', data:{
       address:''
     },required:true %>
+    
     <div id="address_map" class="google_map"></div>
+    
     <%= f.text_field 'phone',placeholder:"+337605482" %>
+    
     <%= f.text_field 'specialty',required:true,placeholder:"Medical specialty" %>
+    
     <%= f.submit "Save" %>
+    
     <%= link_to 'Back', {action:'index'},class:'btn btn-default' %>
+    
 <% end %>
 
+<%# partial script which initialize the geolocalization plugin on the address input field %>
 
 <%= render partial: "init_geocomplete", locals: {map:'#address_map', location: @professional.address } %>

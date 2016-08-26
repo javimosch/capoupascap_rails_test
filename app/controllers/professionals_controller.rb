@@ -9,13 +9,17 @@ class ProfessionalsController < ApplicationController
     @professional = Professional.new
   end
   
+  #resolve payload
   def item_params
     params.require(:professional).permit(:first_name, :last_name, :address,:phone,:specialty)
   end
   
   def create
+    
+    #new instance
     @professional = Professional.new item_params
     
+    #set random avatar
     @professional.avatar = rand(1..15)
     
     if @professional.save
@@ -23,6 +27,7 @@ class ProfessionalsController < ApplicationController
     else
       render :action => 'new'
     end
+    
   end
   
   def destroy

@@ -1,3 +1,5 @@
+<%#table specs%>
+
 class CreateProfessionals < ActiveRecord::Migration
   def change
     create_table :professionals do |t|
