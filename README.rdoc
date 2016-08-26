@@ -38,6 +38,9 @@
  	* [google official docs](https://console.cloud.google.com)
  	* [google cloud console](https://console.cloud.google.com)
  	
+    
+ 
+ ## Try on heroku: smc-test-ja.herokuapp.com
 
 
 
