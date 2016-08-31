@@ -91,11 +91,9 @@ PASSWORD=root
 ``` 
 
 
-
+## Try on heroku: 
  
-
- ## Try on heroku: 
- ### [capoupascap-rails-test.herokuapp.com](capoupascap-rails-test.herokuapp.com)
+[capoupascap-rails-test.herokuapp.com](http://capoupascap-rails-test.herokuapp.com)
 
 
 
