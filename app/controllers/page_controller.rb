@@ -3,12 +3,16 @@ require 'wannabe_bool'
 class PageController < ApplicationController
     include ApplicationHelper::UserInterface
     include UsersHelper::ChallengeInterface
+    
+    
+    #dashboard, check the current session and retreive a list of players
     def dashboard
         @players = User.all
-        verify_session()  
+        verify_session()   #ApplicationHelper::UserInterface
         retreiveChallenges #UserHelper::ChallengeInterface
     end
     
+    #challenge screen (challenge creation form), renders only if there is a current user logged else jump to the dashboard
     def challenge
         verify_session() or redirect_to action:'dashboard'
         @rival = User.find params[:id]
@@ -16,8 +20,9 @@ class PageController < ApplicationController
         @challenge = Challenge.new
     end
     
+    #creates a challenge and redirects to the dashboard
     def create_challenge
-       verify_session() or redirect_to action:'dashboard'
+       verify_session() or redirect_to action:'dashboard' #ApplicationHelper::UserInterface
         
        @user = User.find(challenge_params[:author_id])
        logger.debug "challenge_params #{challenge_params.inspect}"
@@ -26,6 +31,7 @@ class PageController < ApplicationController
        
     end
     
+    #close a challenge ( accept / decline ) by the rival and update his score
     def close_challenge
         @challenge = Challenge.find(params[:challenge_id])
         if !@challenge.nil? then
@@ -45,6 +51,7 @@ class PageController < ApplicationController
    
     private
     
+    #challenge payload
     def challenge_params
         p = params.require(:challenge).permit(:author_id,:rival_id,:message)
         p[:message] =  params[:message]

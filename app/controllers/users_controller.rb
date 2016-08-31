@@ -6,6 +6,8 @@ class UsersController < ApplicationController
         @avatar_select_tag_items = avatar_select_tag_items
     end
     
+    #register screen (GET) and register action (POST), it only set session properties and redirect to dashboard which will 
+    #validate through the UserInterface method verify_session
     def register
         setHelpers
         @user = User.new
@@ -23,7 +25,7 @@ class UsersController < ApplicationController
         
     end
     
-    
+    #remove session properties and redirect to dashboard
     def logout
         session['username'] = ''
         session['password'] = ''
@@ -31,15 +33,13 @@ class UsersController < ApplicationController
         redirect_to controller:'page',action:'dashboard'
     end
     
-   
-    
-    
-    
+    #destroy user and redirect to dashboard
     def destroy
         User.destroy(params[:id])
         redirect_to controller:'page',action:'dashboard'
     end
     
+    #update (POST) user (called from profile) and redirect to dashboard. If fails returns to profile.
     def update
         @user = User.find params[:id]
         if @user.update_attributes user_params then
@@ -49,6 +49,7 @@ class UsersController < ApplicationController
         end
     end
     
+    #login screen, login action(POST), which sets session properties, verify session and redirects to dashboard if success
     def login
         if request.method == 'POST' then
             session['username'] = login_params['username']
@@ -65,9 +66,9 @@ class UsersController < ApplicationController
         end
     end
     
-    
+    #profile screen, verify session before render
     def profile
-        setHelpers
+        setHelpers #ex: set avatar select data
         #in this case scenario, an user can see only his profile. So depends on his session.
         verify_session() or redirect_to action:'dashboard',controller:'page'
         @user = User.find params[:id]
@@ -75,10 +76,12 @@ class UsersController < ApplicationController
     
     private
     
+    #user payload
     def user_params
         params.require(:user).permit(:username,:password,:first_name, :last_name,:age,:genre,:avatar)
     end
     
+    #login payload
     def login_params
         params.require(:user).permit(:username,:password)
     end
