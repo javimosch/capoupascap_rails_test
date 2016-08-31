@@ -1,0 +1,44 @@
+<h3>Dashboard</h3>
+
+<div class="row">
+    <div class="col-sm-3">
+        <%if !@user.avatar.nil? and !@user.avatar.empty? %>
+        <%=image_tag('/img/'+user.avatar+'.jpg',id:'avatar',width:100,alt:'profile_picture')%>
+      <% else %>
+        <span id="avatar_placeholder" class="glyphicon glyphicon-user icon-size"></span>
+      <% end %>
+    </div>
+    <div class="col-sm-9">
+         <h3><%=user.first_name+' '+user.last_name%></h3>
+        <p>Age: <%=user.age%></p>
+        <p>Genre: <%=user.genre%></p>
+        <p>Score: <%=user.score%></p>
+    </div>
+</div>
+
+
+<% if @challenges.size > 0 %>
+    <div class="row">
+        <div class="col-sm-12">
+            <h4>Sended</h4>
+            <ul class="list-group">
+            <% @challenges.each do |item| # item = challenge %>
+                <%= render partial: "challenge_sended", locals: {item:item } %>
+            <% end %>
+            </ul>
+        </div>
+    </div>
+<% end %>
+
+<% if @challenges_received.size > 0 %>
+    <div class="row">
+        <div class="col-sm-12">
+            <h4>Received</h4>
+            <ul class="list-group">
+            <% @challenges_received.each do |item| # item = challenge %>
+                <%= render partial: "challenge_received", locals: {item:item } %>
+            <% end %>
+            </ul>
+        </div>
+    </div>
+<% end %>

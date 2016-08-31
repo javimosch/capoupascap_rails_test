@@ -1,0 +1,41 @@
+<h1>Profile <%= @user.first_name + ' ' + @user.last_name %></h1>
+
+
+<%#form_for bootstrap implementation (https://github.com/bootstrap-ruby/rails-bootstrap-forms)%>
+
+<%= bootstrap_form_for(@user, url:user_path,method: :put) do |f| %>
+    
+    <div class="form-group">
+      <%if !@user.avatar.nil? and !@user.avatar.empty? %>
+        <%=image_tag('/img/'+@user.avatar+'.jpg',id:'avatar',width:100,alt:'profile_picture')%>
+      <% else %>
+        <span id="avatar_placeholder" class="glyphicon glyphicon-user icon-size"></span>
+        <%=image_tag('',id:'avatar',width:100,alt:'profile_picture',style:'display:none')%>
+      <% end %>
+    </div>
+    
+    <%=f.select 'avatar', @avatar_select_tag_items,{
+      required:true
+    },onChange:"javascript: avatarChange(this);"%>
+    
+    <%= f.password_field 'password',required:true, value:@user.password %>
+    <%= f.text_field 'first_name',placeholder:"First Name",required:true %>
+    <%= f.text_field 'last_name',placeholder:"Last Name" %>
+    <%= f.text_field 'age' %>
+    <%=f.select 'genre', [['Female', 'female'], ['Male', 'male']],required:true%>
+   
+    <div class="form-group">
+      <%= f.submit "Save" %>
+    </div>
+
+<% end %>
+
+
+<%= bootstrap_form_for(@user,url: user_path,method: :delete) do |f| %>
+    <%= f.submit "Close account", data: { confirm: 'Sure?' } %>
+<% end %>
+
+
+
+
+<%= render partial: "avatar_on_change" %>

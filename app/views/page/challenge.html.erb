@@ -1,0 +1,53 @@
+<% if @user_logged %>
+    <%= render partial: "dashboard_resume", locals: {user:@user } %>
+<% end %>
+
+<ul class="list-group">
+  
+    <li class="list-group-item">
+     
+     <div class="row">
+         
+         <div class="col-sm-4">
+              <% if !@rival.avatar.nil? %>
+              <div class="form-group">
+                <%=image_tag("/img/"+@rival.avatar+".jpg", width:100)%>
+              </div>
+              <% end %>
+              <h3><%=@rival.first_name+' '+@rival.last_name%></h3>
+                <p>Age: <%=@rival.age%></p>
+                <p>Genre: <%=@rival.genre%></p>
+                <p>Score: <%=@rival.score%></p>
+                
+                <% if !@rival.username.nil? %>
+                  <p>Username: <%=@rival.username%></p>
+                  <p>Password: <%=@rival.password%></p>
+                <% end %>
+                  
+                <%if @user_logged %>
+                  <%=link_to("Défier","/challenge/"+@rival.id.to_s)%>
+                <% end %>
+         </div>
+         
+         <div class="col-sm-8">
+             <h2>Défier <%=@rival.first_name%></h2>
+             
+            <%= bootstrap_form_for(@challenge,url: {controller:'page',action:'create_challenge'}) do |f| %>
+                <%=f.text_field 'author_id',value:@user.id.to_s,type:'hidden',hide_label: true%>
+                <%=f.text_field 'rival_id',value:@rival.id.to_s,type:'hidden',hide_label: true%>
+                <div class="form-group">
+                    <textarea name="message" class="form-control" rows="5" cols=20 placeholder="write your challenge" 
+                    required="true"></textarea>
+                </div>
+                <%= f.submit "Send Challenge" %>
+            <% end %>
+
+             
+             
+         </div>
+         
+     </div>
+     
+    </li>
+  
+</ul>

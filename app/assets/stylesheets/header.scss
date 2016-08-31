@@ -1,0 +1,26 @@
+@import 'header_nav_account';
+
+
+
+.navbar-nav>li{
+    margin:5px;
+}
+.navbar-default .navbar-nav>li>a{
+    color:white;
+}
+
+.navbar-default .navbar-nav>li.dropdown>a{
+    color:black;
+}
+
+.navbar-default .navbar-nav>li>a.btn-primary:focus, .navbar-default .navbar-nav>li>a.btn-primary:hover{
+    color:whitesmoke;
+    background-color: #286090;
+}
+
+.navbar-default .navbar-nav>li>a.btn-success:focus, .navbar-default .navbar-nav>li>a.btn-success:hover{
+    color:whitesmoke;
+    background-color: #449d44;
+}
+
+

@@ -1,14 +1,17 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>test_shopmycourses | Javier Arancibia</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <title>Cap ou pas Cap! | Javier Arancibia</title>
+  
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
   
   <%#loads bootstrap css from cdn%>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
   
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+  
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   
   <%#google api key is hardcoded%>
   <script src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyCXXVxWr5loFF847R6e0VET0JfVQJ-Zlu0"></script>
@@ -16,13 +19,21 @@
 </head>
 <body>
 
-<div class="container">
-  <div class="row">
-      <div class="col-xs-12 ">
-        <div class="">
-          <%= yield %>
-        </div>
+<div id="wrapper">
+  <div id="content">
+    <div class="container">
+      <%= render partial: "/layouts/header"%>
+      <div class="row">
+          <div class="col-xs-12 ">
+            <div class="">
+              <%= yield %>
+            </div>
+          </div>
       </div>
+    </div>
+  </div>
+  <div id="footer">
+      <%= render partial: "/layouts/footer"%>
   </div>
 </div>
 

@@ -1,0 +1,9 @@
+<script>
+  function avatarChange(el)  {
+    if(el.value=='') return;
+    document.querySelector('#avatar').src="/img/"+el.value+'.jpg';
+    document.querySelector('#avatar').style.display='block';
+    if(document.querySelector('#avatar_placeholder'))
+      document.querySelector('#avatar_placeholder').style.display='none';
+  }
+</script>

@@ -11,20 +11,32 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160825142315) do
+ActiveRecord::Schema.define(version: 20160830225431) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "professionals", force: :cascade do |t|
+  create_table "challenges", force: :cascade do |t|
+    t.integer  "author_id",                  null: false
+    t.integer  "rival_id",                   null: false
+    t.string   "message"
+    t.boolean  "accepted",   default: false
+    t.boolean  "closed",     default: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string   "username"
+    t.string   "password"
     t.string   "first_name"
     t.string   "last_name"
-    t.string   "address"
-    t.string   "phone"
-    t.string   "specialty"
     t.string   "avatar"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "genre"
+    t.integer  "age"
+    t.integer  "score",      default: 0
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
   end
 
 end

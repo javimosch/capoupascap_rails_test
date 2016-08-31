@@ -1,0 +1,39 @@
+<ul class="list-group">
+  <% items.each do |item| %>
+    
+    
+    <% if !(currentUser||=nil).nil? and currentUser.id == item.id then
+          next #skip current logged user
+       end %>
+    
+    <li class="list-group-item">
+      
+      
+      <% if !item.avatar.nil? %>
+      <div class="form-group">
+        
+        
+        <%if !item.avatar.nil? and !item.avatar.empty? %>
+        <%=image_tag('/img/'+item.avatar+'.jpg',id:'avatar',width:100,alt:'player_'+item.first_name+'_picture')%>
+      <% else %>
+        <span id="avatar_placeholder" class="glyphicon glyphicon-user icon-size"></span>
+      <% end %>
+        
+      </div>
+      <% end %>
+      <h3><%=item.first_name+' '+item.last_name%></h3>
+        <p>Age: <%=item.age%></p>
+        <p>Genre: <%=item.genre%></p>
+        <p>Score: <%=item.score%></p>
+        
+        <% if !item.username.nil? %>
+          <p>Username: <%=item.username%></p>
+          <p>Password: <%=item.password%></p>
+        <% end %>
+          
+        <%if @user_logged %>
+          <%=link_to("Défier","/challenge/"+item.id.to_s)%>
+        <% end %>
+    </li>
+  <% end %>
+</ul>

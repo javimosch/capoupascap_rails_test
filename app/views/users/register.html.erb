@@ -1,0 +1,38 @@
+
+<%#display server validations%>
+<% if @user.errors.any? %>
+<ul>
+  <% @user.errors.full_messages.each do |msg| %>
+    <li><%= msg %></li>
+  <% end %>
+</ul>
+<% end %>
+
+<h1>Sign Up</h1>
+
+<%#form_for bootstrap implementation (https://github.com/bootstrap-ruby/rails-bootstrap-forms)%>
+
+<%= bootstrap_form_for(@user, url:{id: @user.id,action:'register'}) do |f| %>
+ 
+    <span id="avatar_placeholder" class="glyphicon glyphicon-user icon-size"></span>
+    <%=image_tag('',id:'avatar',width:100,alt:'profile_picture',style:'display:none')%>
+    <%=f.select 'avatar',@avatar_select_tag_items,{
+      required:true
+    },onChange:"javascript: avatarChange(this);"%>
+
+    <%= f.text_field 'username',required:true %>
+  
+    <%= f.password_field 'password',required:true %>
+
+    <%= f.text_field 'first_name',placeholder:"First Name",required:true %>
+    
+    <%= f.text_field 'last_name',placeholder:"Last Name" %>
+     
+    <%= f.number_field 'age',placeholder:"Age",required:true %>
+    
+    <%=f.select 'genre', [['Female', 'female'], ['Male', 'male']],required:true%>
+    
+    <%= f.submit "Accept" %>
+<% end %>
+
+<%= render partial: "avatar_on_change" %>

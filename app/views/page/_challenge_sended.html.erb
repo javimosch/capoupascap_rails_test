@@ -1,0 +1,25 @@
+<li class="list-group-item challenge-item" >
+    <h4>Challenge to <%=item.rival.first_name+' '+item.rival.last_name%>
+    
+    <%if !item.rival.avatar.nil? and !item.rival.avatar.empty? %>
+        <%=image_tag('/img/'+item.rival.avatar+'.jpg',width:20,alt:'rival_picture')%>
+    <% else %>
+        <span class="glyphicon glyphicon-user"></span>
+    <% end %>
+    </h4>
+     <blockquote class="challenge-item_message">
+        <%=item.message%>
+    </blockquote>
+    <p><%=distance_of_time_in_words item.created_at,Time.now%> ago</p>
+    <p> 
+    <% if item.closed? then %>
+        <% if item.accepted? then %>
+            <span class="label label-warning">Accepted</span>
+        <% else %>
+            <span class="label label-success">Declined</span>
+        <% end %>
+    <% else %>
+         <span class="label label-info">Pending</span>
+    <% end %>
+    </p>
+</li>

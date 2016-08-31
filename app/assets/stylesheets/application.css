@@ -17,4 +17,10 @@
  
  /*
  *= require rails_bootstrap_forms
+ *= index 
  */
+
+
+.float-left{
+    float:left;
+}

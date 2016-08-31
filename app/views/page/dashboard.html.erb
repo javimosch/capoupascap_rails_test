@@ -1,0 +1,10 @@
+<% if @user_logged %>
+    <%= render partial: "dashboard_resume", locals: {user:@user } %>
+<% else %>
+<h3>Description</h3>
+<p>Cap ou pas Cap! is a rails example.</p>
+<p>Once you log in, you can challenge other players. Each player can accept or decline a challange.</p>
+<% end %>
+
+<h3>Players</h3>
+<%= render partial: "/users/rivals_list", locals: {items:@players, currentUser:@user } %>

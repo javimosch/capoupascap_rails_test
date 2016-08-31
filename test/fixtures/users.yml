@@ -1,0 +1,72 @@
+one: 
+    first_name: "Niko"
+    last_name: "Bellic"
+    age: 10
+    genre: "male"
+    avatar: 'niko'
+    score: 100
+    username: 'niko'
+    password: 'newyork'
+two: 
+    first_name: "Alyx"
+    last_name: "Vance"
+    age: 20
+    genre: "female"
+    avatar: 'alyx'
+    score: 150
+    username: 'gordon'
+    password: 'freeman'
+three: 
+    first_name: "Faith"
+    last_name: "Connors"
+    age: 24
+    genre: "female"
+    avatar: 'faith'
+    score: 200,
+    username: 'cristal'
+    password: 'clear'
+four: 
+    first_name: "Jade"
+    last_name: "Forrest"
+    age: 27
+    genre: "female"
+    avatar: 'jade'
+    score: 300,
+    username: 'pork'
+    password: 'pork'
+five: 
+    first_name: "Duke"
+    last_name: "Nukem"
+    age: 50
+    genre: "male"
+    avatar: 'duke'
+    score: 666
+    username: 'duke'
+    password: 'duke'
+six: 
+    first_name: "Lara"
+    last_name: "Croft"
+    age: 23
+    genre: "female"
+    avatar: 'lara'
+    score: 200
+    username: 'tom'
+    password: 'raider'
+seven: 
+    first_name: "Tomas"
+    last_name: "Angelo"
+    age: 33
+    genre: "male"
+    avatar: 'tomas'
+    score: 1000
+    username: 'mafia'
+    password: 'mafia'
+eight: 
+    first_name: "Lucas"
+    last_name: "Kane"
+    age: 35
+    genre: "male"
+    avatar: 'lucas'
+    score: 20,
+    username: 'fahrenheit'
+    password: '911'

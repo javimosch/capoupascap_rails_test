@@ -1,0 +1,35 @@
+<li class="list-group-item">
+    <h4>Challenge from <%=item.author.first_name+' '+item.author.last_name%>
+    
+    <%if !item.author.avatar.nil? and !item.author.avatar.empty? %>
+        <%=image_tag('/img/'+item.author.avatar+'.jpg',width:20,alt:'rival_picture')%>
+    <% else %>
+        <span class="glyphicon glyphicon-user"></span>
+    <% end %>
+    </h4>
+    <blockquote class="challenge-item_message">
+        <%=item.message%>
+    </blockquote>
+    <p><%=distance_of_time_in_words item.created_at,Time.now%> ago</p>
+    <p> 
+    <% if item.accepted? then %>
+         <span class="label label-success">Accepted</span>
+         <br>
+         <span class="label label-primary">+30</span>
+    <% else %>
+        <% if item.closed? then %>
+            <span class="label label-warning">Declined</span>
+             <br>
+             <span class="label label-danger">-30</span>
+        <% else %>
+            <%= bootstrap_form_tag url: {controller:'page',action:'close_challenge'} do |f| %>
+                <input name="challenge_id" type="hidden" value="<%=item.id%>">
+                <%=f.select 'accepted', [['Accept', true], ['Decline', false]],label:'Choice',required:true%>
+                <%= f.submit "Submit" %>
+            <% end %>
+        <% end %>
+         
+         
+    <% end %>
+    </p>
+</li>
