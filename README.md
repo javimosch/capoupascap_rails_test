@@ -1,9 +1,46 @@
-## Shopmycourses rails exercise documentation
+## Cap ou pas Cap! (rails example)
+
 
 ##### Description
 
-application Rails 4 for creating health professionals defined by a name, a name, an address, a phone number and a specialty, and allowing
-display them in a list along with a form on which we find a picture, a map with location of the address and the information for each healthcare professional.
+	Etape 1:
+
+        - L'inscription de l'utilisateur ('devise' for ruby) avec des champ
+        suplémmentaire comme le Prénom, L'age et Le type (Masculin, Féminin).
+
+        - La modification de l'utilisateur.
+
+        - La suppression de ce compte.
+
+	Etape 2:
+
+        - Sur la page principale, l'on doit voir 5 personnes aleatoire maximum
+        inscrits sur le site (un peu d'algo en ruby)
+
+
+        - Sur chaque personne, un score (ex: score = 100 points) et un bouton
+        "Défier".
+
+	Etape 3:
+
+        Une fois que le joueur aura appuyer sur le bouton "Défier"
+
+        - Une page avec les récapitulatif du joueur défier (Prénom, age, Type)
+
+        - Un champ ou le joueur pourra écrire le défier + un Bouton envoyé.
+
+	Etape4:
+
+        - Vérifier que le joueur qui est défier un bien reçu le défi avec
+          possibilité de l'accepter ou le décliner.
+
+        - Si le joueur accepte le défie + 30 points a celui-ci et suppression
+		automatique du challenge.
+
+
+
+![Alt text](https://s18.postimg.org/a920trreh/Untitled.jpg "Optional title")
+
 
 #### Steps 1..4
 
@@ -25,7 +62,7 @@ display them in a list along with a form on which we find a picture, a map with 
 #### 3 -
 
  * Load bootstrap libraries for rails.
- * Code 'professionals' crud.
+ * Code steps from the description.
 
 	References
  	* [rails-bootstrap-form library](https://github.com/bootstrap-ruby/rails-bootstrap-forms)
@@ -33,14 +70,9 @@ display them in a list along with a form on which we find a picture, a map with 
  	* [ruby on rails official api doc](http://api.rubyonrails.org)
  	* [ruby on rails apidock documentation](http://apidock.com/rails/)
 
-#### 4 -
+#### More References
 
- * Configure a google cloud console project to get an api key
- * Add embed google map iframe on edit view
-
-	References
- 	* [google official docs](https://console.cloud.google.com)
- 	* [google cloud console](https://console.cloud.google.com)
+ * [association_basics](http://guides.rubyonrails.org/association_basics.html)
  	
     
  ## Local development
@@ -63,7 +95,7 @@ PASSWORD=root
  
 
  ## Try on heroku: 
- ### [smc-test-ja.herokuapp.com](smc-test-ja.herokuapp.com)
+ ### [capoupascap-rails-test.herokuapp.com](capoupascap-rails-test.herokuapp.com)
 
 
 
